@@ -3,6 +3,9 @@ import "./App.css";
 import Header from "./Components/Header";
 import InfoBox from "./Components/InfoBox";
 import Map from "./Components/Map";
+import Table from "./Components/Table";
+import { sortData } from "./Components/util";
+import LineGraph from "./Components/LineGraph";
 import {
   FormControl,
   MenuItem,
@@ -15,6 +18,7 @@ function App() {
   const [countries, setCountries] = useState([]);       //for dropdown the country names
   const [country, setCountry] = useState("worldwide");  //tells the currently selected country
   const [countryInfo, setCountryInfo] = useState({});   //selected country info
+  const [tableData, setTableData] = useState([]);       //stores countries data to display cases in descending order
 
   //API for all country data - https://disease.sh/v3/covid-19/countries
   //API for specific country data - https://disease.sh/v3/covid-19/countries/{Country_Code}
@@ -42,6 +46,9 @@ function App() {
               code: c.countryInfo.iso2,
             }))
           );
+
+          const sortedData = sortData(data);
+          setTableData(sortedData);
         });
     };
 
@@ -69,8 +76,10 @@ function App() {
   // console.log(countryInfo);
   
   return (
+    <div>
+    <Header />
     <div className="app">
-      <Header />
+      
 
       <div className="app__left">
         {/* HEADER */}
@@ -107,12 +116,15 @@ function App() {
         <CardContent>
           {/* TABLE */}
           <h2>Live Cases by Country</h2>
+          <Table countries={tableData} />
 
           {/* GRAPH */}
           <h2>Worldwide new cases</h2>
+          <LineGraph />
 
         </CardContent>
       </Card>
+    </div>
     </div>
   );
 }
