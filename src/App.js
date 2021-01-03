@@ -127,8 +127,8 @@ function App() {
           <Table countries={tableData} />
 
           {/* GRAPH */}
-          <h2>Worldwide new {casesType}</h2>
-          <LineGraph casesType={casesType} />
+          <h2 className="app__graphTitle">Worldwide new {casesType}</h2>
+          <LineGraph className="app__graph" casesType={casesType} />
 
         </CardContent>
       </Card>
