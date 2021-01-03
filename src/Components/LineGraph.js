@@ -47,12 +47,12 @@ const options = {
   },
 };
 
-function LineGraph({ casesType="cases", ...props }) {
+function LineGraph({ casesType, ...props }) {
   const [data, setData] = useState({});
   //API to get last 120 days data for all countries -
   // https://disease.sh/v3/covid-19/historical/all?lastdays=120
 
-  const buildChartData = (data, casesType = "cases") => {
+  const buildChartData = (data, casesType) => {
     const chartData = [];
     let lastDataPoint;
 
@@ -74,7 +74,7 @@ function LineGraph({ casesType="cases", ...props }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        const chartData = buildChartData(data, "cases");
+        const chartData = buildChartData(data, casesType);
         setData(chartData);
       });
   }, [casesType]);

@@ -8,14 +8,31 @@
 }
 
 .infoBox--selected{
-    border-top: 10px solid greenyellow;
+    border-top: 10px solid #cc1034;
 }
+
+.infoBox--selected--green{
+    border-top: 10px solid #7dd71d;
+}
+
+.infoBox--selected--grey{
+    border-top: 10px solid  #5b6369;
+}
+
 
 .infoBox__cases{
     color: #cc1034;
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 0.5rem;
+}
+
+.font--green{
+    color: #7dd71d;
+}
+
+.font--grey{
+    color: #5b6369;
 }
 
 .infoBox__total {
