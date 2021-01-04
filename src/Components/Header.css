@@ -1,4 +1,39 @@
 .header{
-    height: 60px;
-    background-color:blueviolet;
+    height: 100px;
+    background-color: #15b7b9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.header__logo{
+    margin: 0 30px;
+}
+
+.header__right{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    width: 400px;
+}
+
+.header__right h3{
+    /* margin-left: 50px; */
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+}
+
+.header__link{
+    text-decoration: none !important;
+}
+
+.header__link :hover{
+    text-decoration: none !important;
+    color: #ea5455;
+}
+
+
+
